@@ -7,7 +7,9 @@ export default {
       images: [],
       isDragging: false,
       allFiles: [],
-      isOpenPopUp: false
+      isOpenPopUp: false,
+      isLoading: false,
+      isDetailPopUp: false
     }
   },
   methods: {
@@ -52,7 +54,8 @@ export default {
     },
     uploadImage() {
       console.log(this.allFiles)
-      this.isOpenPopUp = !this.isOpenPopUp //change when success
+      this.isLoading = true
+
       let formData = new FormData()
       formData.append('file', this.allFiles[0])
       this.uploadData({
@@ -62,11 +65,30 @@ export default {
       })
     },
     onSuccess(data) {
+      this.isLoading = false
+      this.isOpenPopUp = !this.isOpenPopUp 
       console.log(data)
     },
     onFailure() {},
     removePopop() {
       this.isOpenPopUp = !this.isOpenPopUp
-    }
+    },
+    removeDetailPopUp() {
+      this.isDetailPopUp = !this.isDetailPopUp
+    },
+    getDetails() {
+      this.isLoading = true
+      //get Details API
+      this.getProcessed({
+        success:this.onSuccessGetDetail,
+        failure:this.onFailureGetDetail
+      })
+    },
+    onSuccessGetDetail(data) {
+      this.isLoading = false
+      this.isDetailPopUp = !this.isDetailPopUp
+      console.log(data)
+    },
+    onFailureGetDetail() {}
   }
 }

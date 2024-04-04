@@ -1,4 +1,4 @@
-const baseUrl = 'http://10.30.1.96:8098/employee'
+const baseUrl = 'upload image URL'
 const post = (requestBody) => {
   return fetch(baseUrl, {
     method: 'POST',
@@ -6,6 +6,11 @@ const post = (requestBody) => {
     headers: {}
   })
 }
+const get = () => {
+  const getDetailURL="get Details URL"
+  return fetch(getDetailURL)
+}
 export default {
-  post
+  post,
+  get
 }

@@ -31,18 +31,32 @@
         </div>
       </div>
       <button @click="uploadImage" type="button">Upload</button>
+
+      <div v-if="isLoading" class="spinner-border loading" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+
+      <button @click="getDetails" type="button" class="getDetails">Get Details</button>
     </div>
 
-    <div :class="{ 'popup': true, 'center': true ,'active':isOpenPopUp}">
+    <div :class="{ popup: true, center: true, active: isOpenPopUp }">
       <div class="icon">
         <i class="fa-solid fa-thumbs-up thumbsup"></i>
       </div>
       <div class="title">Sucess!!</div>
-      <div class="description">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, quia.
-      </div>
+      <div class="description">Uploaded Successfully!!</div>
       <div class="dismiss-btn">
         <button @click="removePopop" id="dismiss-popup-btn">Dismiss</button>
+      </div>
+    </div>
+
+    <div :class="{ popup: true, center: true, active: isDetailPopUp }">
+      <div class="icon">
+        <i class="fa-solid fa-thumbs-up thumbsup"></i>
+      </div>
+      <!--Set API DATA using v-for-->
+      <div class="dismiss-btn">
+        <button @click="removeDetailPopUp" id="dismiss-popup-btn">Dismiss</button>
       </div>
     </div>
   </div>
@@ -208,5 +222,11 @@
 .popup .dismiss-btn button:hover {
   color: #111;
   background: #f5f5f5;
+}
+.loading {
+  margin: 1rem 0 0 17rem;
+}
+.getDetails {
+  margin-top: 1rem;
 }
 </style>
