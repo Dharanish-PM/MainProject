@@ -12,6 +12,10 @@ export default {
       isDetailPopUp: false
     }
   },
+  computed:{
+    ...mapState(diseaseIdentifier,['information']),
+
+  },
   methods: {
     ...mapActions(diseaseIdentifier, ['uploadData']),
     selectFiles() {
@@ -66,7 +70,7 @@ export default {
     },
     onSuccess(data) {
       this.isLoading = false
-      this.isOpenPopUp = !this.isOpenPopUp 
+      this.isOpenPopUp = !this.isOpenPopUp
       console.log(data)
     },
     onFailure() {},
@@ -78,15 +82,16 @@ export default {
     },
     getDetails() {
       this.isLoading = true
+      this.isDetailPopUp = !this.isDetailPopUp
       //get Details API
       this.getProcessed({
-        success:this.onSuccessGetDetail,
-        failure:this.onFailureGetDetail
+        success: this.onSuccessGetDetail,
+        failure: this.onFailureGetDetail
       })
     },
     onSuccessGetDetail(data) {
       this.isLoading = false
-      this.isDetailPopUp = !this.isDetailPopUp
+      // this.isDetailPopUp = !this.isDetailPopUp
       console.log(data)
     },
     onFailureGetDetail() {}

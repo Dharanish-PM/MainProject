@@ -50,11 +50,13 @@
       </div>
     </div>
 
-    <div :class="{ popup: true, center: true, active: isDetailPopUp }">
-      <div class="icon">
-        <i class="fa-solid fa-thumbs-up thumbsup"></i>
+    <div :class="{ popup: true, center: true, active: isDetailPopUp, setup: true }">
+      <h5><b> Processed Infromation</b></h5>
+      <div class="slide-content" v-for="(infoTitle, index) in information" :key="index">
+        <div><b>Disease : </b>{{ infoTitle.disease }}</div>
+        <div><b>Phases : </b>{{ infoTitle.phases }}</div>
+        <div><b>Suggestion : </b>{{ infoTitle.suggestion }}</div>
       </div>
-      <!--Set API DATA using v-for-->
       <div class="dismiss-btn">
         <button @click="removeDetailPopUp" id="dismiss-popup-btn">Dismiss</button>
       </div>
@@ -224,9 +226,12 @@
   background: #f5f5f5;
 }
 .loading {
-  margin: 1rem 0 0 17rem;
+  margin: 1rem 0 0 10rem;
 }
 .getDetails {
   margin-top: 1rem;
+}
+.setup {
+  word-break: break-all;
 }
 </style>

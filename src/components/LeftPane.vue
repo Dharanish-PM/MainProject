@@ -9,8 +9,8 @@ defineProps({
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>Welcome to explore the Diesease Identifier</h3>
+    <h1 class="green title">{{ msg }}</h1>
+    <!-- <h3>Welcome to explore the Diesease Identifier</h3> -->
   </div>
 </template>
 

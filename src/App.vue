@@ -6,11 +6,10 @@ import HelloWorld from './components/LeftPane.vue'
 <template>
   <header>
     <div class="wrapper">
-      <HelloWorld msg="NAMEOFPROJECT" />
-
+      <HelloWorld msg="Disease Identifier" />
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">Explore</RouterLink>
+        <!-- <RouterLink to="/">Home</RouterLink> -->
+        <!-- <RouterLink to="/about">Explore</RouterLink> -->
       </nav>
     </div>
   </header>

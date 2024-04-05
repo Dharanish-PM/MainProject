@@ -2,7 +2,14 @@ import { defineStore } from 'pinia'
 import Service from '../service/service'
 export const diseaseIdentifier = defineStore('diseaseIdentifier', {
   state: () => ({
-    information: []
+    information: [
+      {
+        disease: 'hy',
+        phases: 'fdsf',
+        suggestion:
+          'fdsfwemnfsjfjkfbkjbkerbgkerbgjkberkjgberkjbgkerbgkjerbkjberjkgbejkrbgkjerbgkebrkjgberjkgbkerbgkebrgkerbkgberkgberjkgbjerbkerg'
+      }
+    ]
   }),
   actions: {
     async uploadData({ success, failure, payload }) {
@@ -41,8 +48,8 @@ export const diseaseIdentifier = defineStore('diseaseIdentifier', {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
         const data = await response.json()
+        this.information=data;
         success && success()
-        //store the data in information array by accessing it as this.information.
       } catch (err) {
         console.error(err)
       }
