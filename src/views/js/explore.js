@@ -12,9 +12,8 @@ export default {
       isDetailPopUp: false
     }
   },
-  computed:{
-    ...mapState(diseaseIdentifier,['information']),
-
+  computed: {
+    ...mapState(diseaseIdentifier, ['information'])
   },
   methods: {
     ...mapActions(diseaseIdentifier, ['uploadData']),
@@ -70,7 +69,7 @@ export default {
     },
     onSuccess(data) {
       this.isLoading = false
-      this.isOpenPopUp = !this.isOpenPopUp
+
       console.log(data)
     },
     onFailure() {},
@@ -91,7 +90,7 @@ export default {
     },
     onSuccessGetDetail(data) {
       this.isLoading = false
-      // this.isDetailPopUp = !this.isDetailPopUp
+      this.isDetailPopUp = !this.isDetailPopUp
       console.log(data)
     },
     onFailureGetDetail() {}
